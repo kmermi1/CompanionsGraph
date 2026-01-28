@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import timelineData from '../data/timeline.json';
 
 interface HistoricalEvent {
   id: string;
@@ -9,120 +10,7 @@ interface HistoricalEvent {
   details: string;
 }
 
-const HISTORICAL_EVENTS: HistoricalEvent[] = [
-  {
-    id: 'birth',
-    year: 570,
-    age: 0,
-    title: 'Birth of Prophet Muhammad',
-    description: 'Birth in Mecca',
-    details: 'The Prophet Muhammad was born in Mecca. His father Abdullah had died before his birth, and his mother Aminah died when he was six years old.'
-  },
-  {
-    id: 'nurse',
-    year: 576,
-    age: 6,
-    title: 'Death of Mother',
-    description: 'Mother Aminah passes away',
-    details: 'After his mother\'s death, the Prophet was raised by his grandfather Abdul Muttalib, and later by his uncle Abu Talib.'
-  },
-  {
-    id: 'merchant',
-    year: 595,
-    age: 25,
-    title: 'Marriage to Khadijah',
-    description: 'Marries Khadijah bint Khuwaylid',
-    details: 'The Prophet married Khadijah, a wealthy widow and successful merchant. She was 15 years older than him, and became his first and most devoted follower.'
-  },
-  {
-    id: 'revelation',
-    year: 610,
-    age: 40,
-    title: 'First Revelation',
-    description: 'Receives first revelation in Cave of Hira',
-    details: 'At age 40, while meditating in the Cave of Hira, the Prophet received his first revelation from Angel Gabriel. This marked the beginning of his prophetic mission.'
-  },
-  {
-    id: 'preaching',
-    year: 613,
-    age: 43,
-    title: 'Public Preaching Begins',
-    description: 'Begins public preaching of Islam',
-    details: 'The Prophet began preaching Islam publicly in Mecca, calling people to worship only Allah. He faced strong opposition from the Quraysh tribe.'
-  },
-  {
-    id: 'hijra',
-    year: 622,
-    age: 52,
-    title: 'Hijra to Medina',
-    description: 'Migration from Mecca to Medina',
-    details: 'Facing persecution, the Prophet and his followers migrated to Medina. This event marks the beginning of the Islamic calendar (Hijri calendar).'
-  },
-  {
-    id: 'badr',
-    year: 624,
-    age: 54,
-    title: 'Battle of Badr',
-    description: 'First major battle with the Quraysh',
-    details: 'The Muslims achieved a significant victory against the larger Quraysh army at the Battle of Badr. This boosted the morale of the young Muslim community.'
-  },
-  {
-    id: 'uhud',
-    year: 625,
-    age: 55,
-    title: 'Battle of Uhud',
-    description: 'Second major battle near Medina',
-    details: 'The Muslims faced defeat at the Battle of Uhud. The Prophet was injured and several companions were martyred, but the Muslim community remained steadfast.'
-  },
-  {
-    id: 'khandaq',
-    year: 627,
-    age: 57,
-    title: 'Battle of Khandaq',
-    description: 'Battle of the Trench',
-    details: 'The Muslims successfully defended Medina by digging a trench. The siege lasted several weeks, and the Quraysh eventually withdrew without breaking through.'
-  },
-  {
-    id: 'hudaybiyyah',
-    year: 628,
-    age: 58,
-    title: 'Treaty of Hudaybiyyah',
-    description: 'Peace treaty with the Quraysh',
-    details: 'A 10-year truce was established between the Muslims and Quraysh. This allowed for peaceful missionary work and strengthened the Muslim position.'
-  },
-  {
-    id: 'khaybar',
-    year: 628,
-    age: 58,
-    title: 'Conquest of Khaybar',
-    description: 'Conquest of Jewish strongholds',
-    details: 'The Muslims conquered the strongholds of Khaybar, a major Jewish settlement in northern Arabia. This expanded Muslim territory and resources.'
-  },
-  {
-    id: 'mecca',
-    year: 630,
-    age: 60,
-    title: 'Conquest of Mecca',
-    description: 'Bloodless conquest of Mecca',
-    details: 'The Prophet led an army of 10,000 Muslims and entered Mecca peacefully. The Kaaba was cleansed of idols, and Mecca became the holiest city in Islam.'
-  },
-  {
-    id: 'hajj',
-    year: 632,
-    age: 62,
-    title: 'Farewell Pilgrimage',
-    description: 'Last Hajj and final sermon',
-    details: 'The Prophet performed his final Hajj and delivered the Farewell Sermon, emphasizing brotherhood, justice, and equality. Hundreds of thousands of Muslims participated.'
-  },
-  {
-    id: 'death',
-    year: 632,
-    age: 63,
-    title: 'Death of the Prophet',
-    description: 'The Prophet passes away in Medina',
-    details: 'The Prophet Muhammad passed away in Medina. He left behind a unified Arabian Peninsula, millions of followers, and a legacy that would shape history.'
-  }
-];
+const HISTORICAL_EVENTS: HistoricalEvent[] = timelineData.events;
 
 interface TimelineProps {
   onEventSelect?: (event: HistoricalEvent) => void;
@@ -165,6 +53,7 @@ export const Timeline: React.FC<TimelineProps> = ({ onEventSelect }) => {
               onChange={handleSliderChange}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-prophet-gold"
               style={{
+                pointerEvents: 'auto',
                 background: `linear-gradient(to right, #d4af37 0%, #d4af37 ${
                   (sliderValue / (HISTORICAL_EVENTS.length - 1)) * 100
                 }%, #e5e7eb ${(sliderValue / (HISTORICAL_EVENTS.length - 1)) * 100}%, #e5e7eb 100%)`

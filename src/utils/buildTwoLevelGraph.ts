@@ -22,13 +22,15 @@ const RADIUS_LEVEL_2 = 450;
  * Build a two-level graph starting from any center node.
  * Level 1: Direct connections to the center node
  * Level 2: Connections from level-1 nodes
- * Returns filtered nodes and edges based on active relationship types.
+ * Returns filtered nodes and edges based on active relationship types and node levels.
  */
 export function buildTwoLevelGraph(
   activeSuhbah: boolean,
   activeFamily: boolean,
   dragEnabled: boolean = false,
-  centerNodeId: string = 'prophet'
+  centerNodeId: string = 'prophet',
+  activeLevel1: boolean = true,
+  activeLevel2: boolean = true
 ): { nodes: Node[]; edges: Edge[] } {
   const nodes: Node[] = [];
   const edges: Edge[] = [];
@@ -44,31 +46,35 @@ export function buildTwoLevelGraph(
   includedNodeIds.add(centerNodeId);
 
   // Find Level 1 nodes (direct connections to center node)
-  relationships.forEach((rel) => {
-    if (rel.source === centerNodeId && ((activeSuhbah && rel.type === 'suhbah') || (activeFamily && rel.type === 'family'))) {
-      includedNodeIds.add(rel.target);
-      level1Nodes.add(rel.target);
-    }
-    if (rel.target === centerNodeId && ((activeSuhbah && rel.type === 'suhbah') || (activeFamily && rel.type === 'family'))) {
-      includedNodeIds.add(rel.source);
-      level1Nodes.add(rel.source);
-    }
-  });
+  if (activeLevel1) {
+    relationships.forEach((rel) => {
+      if (rel.source === centerNodeId && ((activeSuhbah && rel.type === 'suhbah') || (activeFamily && rel.type === 'family'))) {
+        includedNodeIds.add(rel.target);
+        level1Nodes.add(rel.target);
+      }
+      if (rel.target === centerNodeId && ((activeSuhbah && rel.type === 'suhbah') || (activeFamily && rel.type === 'family'))) {
+        includedNodeIds.add(rel.source);
+        level1Nodes.add(rel.source);
+      }
+    });
+  }
 
   // Find Level 2 nodes (connections from Level 1 nodes)
-  relationships.forEach((rel) => {
-    if (level1Nodes.has(rel.source)) {
-      if (
-        (rel.type === 'suhbah' && activeSuhbah) ||
-        (rel.type === 'family' && activeFamily)
-      ) {
-        if (rel.target !== 'prophet') {
-          includedNodeIds.add(rel.target);
-          level2Nodes.add(rel.target);
+  if (activeLevel2) {
+    relationships.forEach((rel) => {
+      if (level1Nodes.has(rel.source)) {
+        if (
+          (rel.type === 'suhbah' && activeSuhbah) ||
+          (rel.type === 'family' && activeFamily)
+        ) {
+          if (rel.target !== 'prophet') {
+            includedNodeIds.add(rel.target);
+            level2Nodes.add(rel.target);
+          }
         }
       }
-    }
-  });
+    });
+  }
 
   // Create nodes with positioning
   const level1Count = level1Nodes.size;

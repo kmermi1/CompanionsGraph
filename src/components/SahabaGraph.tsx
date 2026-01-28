@@ -12,6 +12,7 @@ import 'reactflow/dist/style.css';
 import { buildTwoLevelGraph } from '../utils/buildTwoLevelGraph';
 import biographiesData from '../data/biographies.json';
 import { Timeline } from './Timeline';
+import { WikipediaModal } from './WikipediaModal';
 
 const FlowInner: React.FC<{
   selectedNode: string | null;
@@ -66,14 +67,22 @@ const FlowInner: React.FC<{
             </div>
 
             <div className="mt-6 pt-4 border-t border-gray-200">
-              <a
-                href={(biographiesData.biographies as any)[selectedNode].wikipedia}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+              <button
+                onClick={() => {
+                  const wikipediaUrl = (biographiesData.biographies as any)[selectedNode].wikipedia;
+                  document.dispatchEvent(
+                    new CustomEvent('openWikipedia', {
+                      detail: {
+                        url: wikipediaUrl,
+                        name: (biographiesData.biographies as any)[selectedNode].name
+                      }
+                    })
+                  );
+                }}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline cursor-pointer"
               >
                 Read Full Biography on Wikipedia →
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -85,22 +94,36 @@ const FlowInner: React.FC<{
 export const SahabaGraph: React.FC = () => {
   const [activeSuhbah, setActiveSuhbah] = useState(true);
   const [activeFamily, setActiveFamily] = useState(true);
+  const [activeLevel1, setActiveLevel1] = useState(true);
+  const [activeLevel2, setActiveLevel2] = useState(true);
   const [dragEnabled, setDragEnabled] = useState(true);
   const [centerNode, setCenterNode] = useState('prophet');
   const [selectedNode, setSelectedNode] = useState<string | null>('prophet');
   const [pendingCenter, setPendingCenter] = useState<string | null>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
+  const [wikipediaModal, setWikipediaModal] = useState({ isOpen: false, url: '', name: '' });
 
-  const { nodes: initialNodes, edges: initialEdges } = buildTwoLevelGraph(activeSuhbah, activeFamily, dragEnabled, centerNode);
+  const { nodes: initialNodes, edges: initialEdges } = buildTwoLevelGraph(activeSuhbah, activeFamily, dragEnabled, centerNode, activeLevel1, activeLevel2);
   
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges] = useEdgesState(initialEdges);
+
+  // Listen for Wikipedia modal event
+  React.useEffect(() => {
+    const handleOpenWikipedia = (event: any) => {
+      const { url, name } = event.detail;
+      setWikipediaModal({ isOpen: true, url, name });
+    };
+
+    document.addEventListener('openWikipedia', handleOpenWikipedia);
+    return () => document.removeEventListener('openWikipedia', handleOpenWikipedia);
+  }, []);
 
   // Handle animation completion - update center and merge new nodes
   const handleAnimationComplete = useCallback(() => {
     if (pendingCenter) {
       // Get the new graph for the new center
-      const { nodes: newGraphNodes, edges: newGraphEdges } = buildTwoLevelGraph(activeSuhbah, activeFamily, dragEnabled, pendingCenter);
+      const { nodes: newGraphNodes, edges: newGraphEdges } = buildTwoLevelGraph(activeSuhbah, activeFamily, dragEnabled, pendingCenter, activeLevel1, activeLevel2);
       
       // Merge nodes - keep existing ones and add new ones with their positions
       setNodes(currentNodes => {
@@ -120,14 +143,14 @@ export const SahabaGraph: React.FC = () => {
       setCenterNode(pendingCenter);
       setPendingCenter(null);
     }
-  }, [pendingCenter, activeSuhbah, activeFamily, dragEnabled, setNodes, setEdges]);
+  }, [pendingCenter, activeSuhbah, activeFamily, dragEnabled, activeLevel1, activeLevel2, setNodes, setEdges]);
 
   // Update nodes and edges when dependencies change
   React.useEffect(() => {
-    const { nodes: updatedNodes, edges: updatedEdges } = buildTwoLevelGraph(activeSuhbah, activeFamily, dragEnabled, centerNode);
+    const { nodes: updatedNodes, edges: updatedEdges } = buildTwoLevelGraph(activeSuhbah, activeFamily, dragEnabled, centerNode, activeLevel1, activeLevel2);
     setNodes(updatedNodes);
     setEdges(updatedEdges);
-  }, [activeSuhbah, activeFamily, dragEnabled, centerNode, setNodes, setEdges]);
+  }, [activeSuhbah, activeFamily, dragEnabled, centerNode, activeLevel1, activeLevel2, setNodes, setEdges]);
 
   // Animate to the pending center node when a node is clicked
   React.useEffect(() => {
@@ -177,6 +200,14 @@ export const SahabaGraph: React.FC = () => {
     setDragEnabled((prev) => !prev);
   }, []);
 
+  const handleLevel1Toggle = useCallback(() => {
+    setActiveLevel1((prev) => !prev);
+  }, []);
+
+  const handleLevel2Toggle = useCallback(() => {
+    setActiveLevel2((prev) => !prev);
+  }, []);
+
   return (
     <div className="w-full min-h-screen bg-calm-beige">
       {/* Header */}
@@ -184,68 +215,72 @@ export const SahabaGraph: React.FC = () => {
         <h1 className="text-3xl font-bold text-gray-800 mb-1">
           Companions Graph
         </h1>
-        <p className="text-gray-600 text-sm mb-4">
+        <p className="text-gray-600 text-sm">
           Mapping Exemplary Lives
         </p>
-        {/* Level Legend */}
-        <div className="flex gap-6 text-xs flex-wrap">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 border-3 border-prophet-gold rounded bg-fffbf0" style={{ borderColor: '#d4af37' }}></div>
-            <span className="font-semibold text-gray-700">Center Node</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 border-2 border-gray-800 rounded bg-white"></div>
-            <span className="font-semibold text-gray-700">Level 1 (Direct)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 border-2 rounded bg-faf9f7" style={{ borderColor: '#a89a7e' }}></div>
-            <span className="font-semibold text-gray-700">Level 2 (Secondary)</span>
-          </div>
-          <div className="text-gray-600 font-semibold">
-            Click a node to make it the center
-          </div>
-        </div>
       </div>
 
       {/* Controls Panel */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4 flex gap-6 items-center justify-between flex-wrap">
-        <div className="flex gap-6 items-center">
-          <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 px-3 py-2 rounded">
-            <input
-              type="checkbox"
-              checked={activeSuhbah}
-              onChange={handleSuhbahToggle}
-              className="w-4 h-4 accent-prophet-gold"
-            />
-            <span className="text-sm font-medium text-gray-700">
-              Companionship (Suhbah)
-            </span>
-            <div className="w-3 h-3 bg-prophet-gold rounded-full opacity-60 ml-2" />
-          </label>
+      <div className="bg-white border-b border-gray-200 px-6 py-4 flex gap-4 items-center flex-wrap z-10">
+        <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 px-4 py-3 rounded transition-colors">
+          <input
+            type="checkbox"
+            checked={activeSuhbah}
+            onChange={handleSuhbahToggle}
+            className="w-5 h-5"
+          />
+          <span className="text-sm font-medium text-gray-700">
+            Companionship (Suhbah)
+          </span>
+          <div className="w-3 h-3 bg-prophet-gold rounded-full opacity-60" />
+        </label>
 
-          <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 px-3 py-2 rounded">
-            <input
-              type="checkbox"
-              checked={activeFamily}
-              onChange={handleFamilyToggle}
-              className="w-4 h-4 accent-family-green"
-            />
-            <span className="text-sm font-medium text-gray-700">
-              Family Relations
-            </span>
-            <div className="w-3 h-3 bg-family-green rounded-full opacity-50 ml-2" />
-          </label>
-        </div>
+        <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 px-4 py-3 rounded transition-colors">
+          <input
+            type="checkbox"
+            checked={activeFamily}
+            onChange={handleFamilyToggle}
+            className="w-5 h-5"
+          />
+          <span className="text-sm font-medium text-gray-700">
+            Family Relations
+          </span>
+          <div className="w-3 h-3 bg-family-green rounded-full opacity-50" />
+        </label>
 
-        <label className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 px-3 py-2 rounded">
+        <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 px-4 py-3 rounded transition-colors">
+          <input
+            type="checkbox"
+            checked={activeLevel1}
+            onChange={handleLevel1Toggle}
+            className="w-5 h-5"
+          />
+          <span className="text-sm font-medium text-gray-700">
+            Level 1
+          </span>
+        </label>
+
+        <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 px-4 py-3 rounded transition-colors">
+          <input
+            type="checkbox"
+            checked={activeLevel2}
+            onChange={handleLevel2Toggle}
+            className="w-5 h-5"
+          />
+          <span className="text-sm font-medium text-gray-700">
+            Level 2
+          </span>
+        </label>
+
+        <label className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 px-4 py-3 rounded transition-colors">
           <input
             type="checkbox"
             checked={dragEnabled}
             onChange={handleDragToggle}
-            className="w-4 h-4 accent-blue-600"
+            className="w-5 h-5"
           />
           <span className="text-sm font-medium text-gray-700">
-            Enable Drag Nodes
+            Drag
           </span>
           <span className={`ml-2 text-xs font-semibold px-2 py-1 rounded ${dragEnabled ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'}`}>
             {dragEnabled ? 'ON' : 'OFF'}
@@ -286,6 +321,14 @@ export const SahabaGraph: React.FC = () => {
         {/* Timeline Component */}
         <Timeline />
       </div>
+
+      {/* Wikipedia Modal */}
+      <WikipediaModal
+        isOpen={wikipediaModal.isOpen}
+        url={wikipediaModal.url}
+        name={wikipediaModal.name}
+        onClose={() => setWikipediaModal({ isOpen: false, url: '', name: '' })}
+      />
     </div>
   );
 };
