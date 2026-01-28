@@ -1,0 +1,304 @@
+{
+  "relationships": [
+    {
+      "source": "prophet",
+      "target": "abu-bakr",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "umar",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "uthman",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "ali",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "aisha",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "fatima",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "hamza",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "bilal",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "khadeejah",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "zaid",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "jafar",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "abu-talib",
+      "type": "suhbah"
+    },
+    {
+      "source": "abu-talib",
+      "target": "prophet",
+      "type": "family",
+      "familyType": "Uncle"
+    },
+    {
+      "source": "ali",
+      "target": "fatima",
+      "type": "family",
+      "familyType": "Husband"
+    },
+    {
+      "source": "hamza",
+      "target": "jafar",
+      "type": "family",
+      "familyType": "Brother"
+    },
+    {
+      "source": "abu-bakr",
+      "target": "umar",
+      "type": "suhbah"
+    },
+    {
+      "source": "umar",
+      "target": "uthman",
+      "type": "suhbah"
+    },
+    {
+      "source": "ali",
+      "target": "hamza",
+      "type": "family",
+      "familyType": "Cousin"
+    },
+    {
+      "source": "abu-bakr",
+      "target": "aisha",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "abu-bakr",
+      "target": "asma",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "asma",
+      "target": "zubayr",
+      "type": "family",
+      "familyType": "Spouse"
+    },
+    {
+      "source": "ali",
+      "target": "hasan",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "ali",
+      "target": "husain",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "fatima",
+      "target": "hasan",
+      "type": "family",
+      "familyType": "Mother"
+    },
+    {
+      "source": "fatima",
+      "target": "husain",
+      "type": "family",
+      "familyType": "Mother"
+    },
+    {
+      "source": "hamza",
+      "target": "ali",
+      "type": "family",
+      "familyType": "Uncle"
+    },
+    {
+      "source": "abu-talib",
+      "target": "ali",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "abu-talib",
+      "target": "jafar",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "abu-talib",
+      "target": "hamza",
+      "type": "family",
+      "familyType": "Brother"
+    },
+    {
+      "source": "safiyya",
+      "target": "hamza",
+      "type": "family",
+      "familyType": "Sister"
+    },
+    {
+      "source": "safiyya",
+      "target": "prophet",
+      "type": "family",
+      "familyType": "Aunt"
+    },
+    {
+      "source": "abbas",
+      "target": "abdur-rahman",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "abbas",
+      "target": "prophet",
+      "type": "family",
+      "familyType": "Uncle"
+    },
+    {
+      "source": "abbas",
+      "target": "abdullah-abbas",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "talha",
+      "target": "usman-ibn-talha",
+      "type": "family",
+      "familyType": "Father"
+    },
+    {
+      "source": "prophet",
+      "target": "safiyya",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "abbas",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "talha",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "zubayr",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "khalid",
+      "type": "suhbah"
+    },
+    {
+      "source": "prophet",
+      "target": "abdur-rahman",
+      "type": "suhbah"
+    },
+    {
+      "source": "hamza",
+      "target": "safiyya",
+      "type": "family",
+      "familyType": "Sister"
+    },
+    {
+      "source": "jafar",
+      "target": "safiyya",
+      "type": "family",
+      "familyType": "Sister"
+    },
+    {
+      "source": "abbas",
+      "target": "hamza",
+      "type": "family",
+      "familyType": "Brother"
+    },
+    {
+      "source": "abbas",
+      "target": "jafar",
+      "type": "family",
+      "familyType": "Brother"
+    },
+    {
+      "source": "abbas",
+      "target": "safiyya",
+      "type": "family",
+      "familyType": "Sister"
+    },
+    {
+      "source": "aisha",
+      "target": "asma",
+      "type": "family",
+      "familyType": "Sister"
+    },
+    {
+      "source": "hasan",
+      "target": "husain",
+      "type": "family",
+      "familyType": "Brother"
+    },
+    {
+      "source": "bilal",
+      "target": "aisha",
+      "type": "suhbah"
+    },
+    {
+      "source": "zaid",
+      "target": "prophet",
+      "type": "family",
+      "familyType": "Adopted Son"
+    },
+    {
+      "source": "khadeejah",
+      "target": "fatima",
+      "type": "family",
+      "familyType": "Mother"
+    },
+    {
+      "source": "talha",
+      "target": "zubayr",
+      "type": "suhbah"
+    },
+    {
+      "source": "khalid",
+      "target": "umar",
+      "type": "suhbah"
+    },
+    {
+      "source": "abdur-rahman",
+      "target": "uthman",
+      "type": "suhbah"
+    }
+  ]
+}

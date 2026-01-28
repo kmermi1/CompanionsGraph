@@ -1,0 +1,148 @@
+{
+  "biographies": {
+    "prophet": {
+      "name": "Prophet Muhammad ﷺ",
+      "title": "The Messenger of Allah",
+      "history": "Born in Mecca, Muhammad ﷺ received the revelation of the Quran over 23 years. He established Islam and the first Muslim community (Ummah). He was known for his honesty, compassion, and justice.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Muhammad"
+    },
+    "abu-bakr": {
+      "name": "Abu Bakr as-Siddiq",
+      "title": "The Truthful One",
+      "history": "One of the closest companions of the Prophet ﷺ. He was the first to believe in Islam among adults. He became the first Caliph after the Prophet's death and was known for his devotion and wisdom.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Abu_Bakr"
+    },
+    "umar": {
+      "name": "Umar ibn al-Khattab",
+      "title": "The Distinguisher",
+      "history": "A strong and just companion who became the second Caliph. He was known for his firmness, wisdom, and administrative skills. He expanded the Islamic state and implemented fair governance.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Umar"
+    },
+    "uthman": {
+      "name": "Uthman ibn Affan",
+      "title": "The Possessor of Two Lights",
+      "history": "A wealthy companion who supported Islam financially. He became the third Caliph and is most remembered for compiling the Quran into a standardized written text.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Uthman_ibn_Affan"
+    },
+    "ali": {
+      "name": "Ali ibn Abi Talib",
+      "title": "The Commander of the Faithful",
+      "history": "Cousin and son-in-law of the Prophet ﷺ. A strong warrior and judge, known for his knowledge and courage. He became the fourth Caliph and was famous for his administrative justice.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ali"
+    },
+    "aisha": {
+      "name": "Aisha bint Abi Bakr",
+      "title": "The Mother of the Believers",
+      "history": "The youngest wife of the Prophet ﷺ. She was a scholar of Islam, hadith narrator, and political leader. She played a crucial role in preserving Islamic knowledge.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Aisha"
+    },
+    "fatima": {
+      "name": "Fatima bint Muhammad",
+      "title": "The Mistress of the Women of Paradise",
+      "history": "Daughter of the Prophet ﷺ and wife of Ali. Known for her piety, grace, and dedication to her family. She represents the ideal Muslim woman in Islamic tradition.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fatimah"
+    },
+    "hamza": {
+      "name": "Hamza ibn Abdul-Muttalib",
+      "title": "The Lion of Allah",
+      "history": "Uncle of the Prophet ﷺ and a fearless warrior. He was a great military commander and died as a martyr at the Battle of Uhud, displaying courage and devotion.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hamza_ibn_Abdul-Muttalib"
+    },
+    "bilal": {
+      "name": "Bilal ibn Rabah",
+      "title": "The Freed Slave",
+      "history": "Originally an enslaved person, Bilal was freed by Abu Bakr after converting to Islam. He became the first Muezzin (caller to prayer) and is an example of spiritual equality in Islam.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Bilal_ibn_Rabah"
+    },
+    "khadeejah": {
+      "name": "Khadijah bint Khuwaylid",
+      "title": "The First Believer",
+      "history": "The first wife of Prophet Muhammad ﷺ and the first to believe in his message. A successful businesswoman, she supported the Prophet ﷺ throughout the early years of Islam.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Khadijah_bint_Khuwaylid"
+    },
+    "zaid": {
+      "name": "Zaid ibn Harithah",
+      "title": "The Adopted Son",
+      "history": "Adopted by the Prophet ﷺ, Zaid was a freed captive from war. He was deeply loved by the Prophet and known for his loyalty and military prowess.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Zayd_ibn_Harithah"
+    },
+    "jafar": {
+      "name": "Jafar ibn Abi Talib",
+      "title": "The Flying Man",
+      "history": "Brother of Ali and cousin of the Prophet ﷺ. He was a military commander known for leading expeditions. He was martyred in the Battle of Mu'tah.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ja%27far_ibn_Abi_Talib"
+    },
+    "abu-talib": {
+      "name": "Abu Talib ibn Abdul-Muttalib",
+      "title": "The Protector of the Prophet",
+      "history": "Uncle of the Prophet ﷺ who protected him from early persecution. Though not a Muslim, he supported the Prophet's mission. He was known for his honor and tribal position.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Abu_Talib_ibn_Abd_al-Muttalib"
+    },
+    "hasan": {
+      "name": "Hasan ibn Ali",
+      "title": "The Noble One",
+      "history": "Eldest grandson of the Prophet ﷺ through his daughter Fatima. Known for his generosity, piety, and peaceful nature. He was a bridge between conflicting factions.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hasan_ibn_Ali"
+    },
+    "husain": {
+      "name": "Husain ibn Ali",
+      "title": "The Martyr",
+      "history": "Younger grandson of the Prophet ﷺ. He is remembered for his martyrdom at Karbala while standing for justice and against tyranny, becoming a symbol of courage.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Husain_ibn_Ali"
+    },
+    "asma": {
+      "name": "Asma bint Abu Bakr",
+      "title": "The Woman of Two Girdles",
+      "history": "Sister of Aisha and daughter of Abu Bakr. She was a notable companion known for her wisdom, bravery, and piety. She lived to be over 90 years old.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Asma_bint_Abu_Bakr"
+    },
+    "talha": {
+      "name": "Talha ibn Ubaydullah",
+      "title": "The Merchant of Paradise",
+      "history": "One of the ten promised paradise companions. A wealthy and generous merchant who was a great supporter of Islam. He was known for his moral character and devotion.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Talha_ibn_Ubaydullah"
+    },
+    "zubayr": {
+      "name": "Zubayr ibn al-Awwam",
+      "title": "The Disciple of the Prophet",
+      "history": "Cousin of the Prophet ﷺ and one of the ten promised paradise. A renowned warrior and scholar, he was deeply devoted to Islam and known for his integrity.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Zubayr_ibn_al-Awwam"
+    },
+    "safiyya": {
+      "name": "Safiyya bint Abdul-Muttalib",
+      "title": "The Aunt of the Prophet",
+      "history": "Aunt of Prophet Muhammad ﷺ. She was one of the early believers and a supportive figure. She participated in the defense of Medina during battles.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Safiyyah_bint_Abdul-Muttalib"
+    },
+    "abbas": {
+      "name": "Abbas ibn Abdul-Muttalib",
+      "title": "The Uncle of the Prophet",
+      "history": "Uncle of the Prophet ﷺ. Though he accepted Islam later, he became a devoted companion. His descendants, the Abbasid dynasty, founded one of Islam's great caliphates.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Abbas_ibn_Abd_al-Muttalib"
+    },
+    "abdullah-abbas": {
+      "name": "Abdullah ibn Abbas",
+      "title": "The Learned One",
+      "history": "Son of Abbas and cousin of the Prophet ﷺ. One of the greatest Islamic scholars and interpreters of the Quran. His knowledge was widely sought and respected.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Abdullah_ibn_Abbas"
+    },
+    "khalid": {
+      "name": "Khalid ibn Walid",
+      "title": "The Sword of Allah",
+      "history": "Initially an opponent of Islam but later a devoted companion. He became one of Islam's greatest military strategists and never lost a single battle he commanded.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Khalid_ibn_al-Walid"
+    },
+    "abdur-rahman": {
+      "name": "Abdur-Rahman ibn Awf",
+      "title": "The Wealthy Generous One",
+      "history": "One of the ten promised paradise. A wealthy merchant and wise counselor. He was known for his generosity, business acumen, and moral guidance.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Abd_al-Rahman_ibn_Awf"
+    },
+    "usman-ibn-talha": {
+      "name": "Uthman ibn Talha",
+      "title": "The Keeper of the House",
+      "history": "Son of Talha, he was a devoted companion. He served as a guardian of the Kaaba and was known for his piety and responsibility in maintaining the sacred house.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Uthman_ibn_Talha"
+    }
+  }
+}

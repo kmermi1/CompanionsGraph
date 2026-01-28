@@ -1,0 +1,124 @@
+{
+  "sahaba": [
+    {
+      "id": "prophet",
+      "name": "Prophet Muhammad ﷺ",
+      "type": "prophet"
+    },
+    {
+      "id": "abu-bakr",
+      "name": "Abu Bakr as-Siddiq",
+      "type": "companion"
+    },
+    {
+      "id": "umar",
+      "name": "Umar ibn al-Khattab",
+      "type": "companion"
+    },
+    {
+      "id": "uthman",
+      "name": "Uthman ibn Affan",
+      "type": "companion"
+    },
+    {
+      "id": "ali",
+      "name": "Ali ibn Abi Talib",
+      "type": "companion"
+    },
+    {
+      "id": "aisha",
+      "name": "Aisha bint Abi Bakr",
+      "type": "companion"
+    },
+    {
+      "id": "fatima",
+      "name": "Fatima bint Muhammad",
+      "type": "companion"
+    },
+    {
+      "id": "hamza",
+      "name": "Hamza ibn Abdul-Muttalib",
+      "type": "companion"
+    },
+    {
+      "id": "bilal",
+      "name": "Bilal ibn Rabah",
+      "type": "companion"
+    },
+    {
+      "id": "khadeejah",
+      "name": "Khadijah bint Khuwaylid",
+      "type": "companion"
+    },
+    {
+      "id": "zaid",
+      "name": "Zaid ibn Harithah",
+      "type": "companion"
+    },
+    {
+      "id": "jafar",
+      "name": "Jafar ibn Abi Talib",
+      "type": "companion"
+    },
+    {
+      "id": "abu-talib",
+      "name": "Abu Talib ibn Abdul-Muttalib",
+      "type": "companion"
+    },
+    {
+      "id": "hasan",
+      "name": "Hasan ibn Ali",
+      "type": "companion"
+    },
+    {
+      "id": "husain",
+      "name": "Husain ibn Ali",
+      "type": "companion"
+    },
+    {
+      "id": "asma",
+      "name": "Asma bint Abu Bakr",
+      "type": "companion"
+    },
+    {
+      "id": "talha",
+      "name": "Talha ibn Ubaydullah",
+      "type": "companion"
+    },
+    {
+      "id": "zubayr",
+      "name": "Zubayr ibn al-Awwam",
+      "type": "companion"
+    },
+    {
+      "id": "safiyya",
+      "name": "Safiyya bint Abdul-Muttalib",
+      "type": "companion"
+    },
+    {
+      "id": "abbas",
+      "name": "Abbas ibn Abdul-Muttalib",
+      "type": "companion"
+    },
+    {
+      "id": "abdullah-abbas",
+      "name": "Abdullah ibn Abbas",
+      "type": "companion"
+    },
+    {
+      "id": "khalid",
+      "name": "Khalid ibn Walid",
+      "type": "companion"
+    },
+    {
+      "id": "abdur-rahman",
+      "name": "Abdur-Rahman ibn Awf",
+      "type": "companion"
+    },
+    {
+      "id": "usman-ibn-talha",
+      "name": "Uthman ibn Talha",
+      "type": "companion"
+    }
+  ]
+}
